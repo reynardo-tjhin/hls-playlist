@@ -1,0 +1,16 @@
+curl --url ^"https://theorboofthorns.space/pl/H4sIAAAAAAAAAwXB0W6DIBQA0F9SGK4s6cNMpQ0bWgFBfVOvDZvYuFad8.t3DukRvRHoe4gofYkQwSE6RNHh9kp7TGn3lt4rUo8c692sla5we4fMjsMKyIzWOGMubIWAOjDiYRO3SMM4JHIFxkubsKceihWG7dJ9A4GTNy3rHkoPRARefiJTFsM2F6ML4PSOU1zPH_uAmzMV1c63XKe8UfS3Luulxd53yYRswkmmZdn4.E.H_CqwnNSZJpl6bgYxByweZShQo.ZC240pI2O9u1Gc4EdZL9pyWsTFZdnZB_UXzVML5pofj_8klZRlCQEAAA--/master.m3u8?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJteS1hdXRoIiwiaWF0IjoxNzg5NzMxMjIzLCJuYmYiOjE3ODk3MzEyMjMsImV4cCI6MTc4OTc0NTYyMywiaXBfY2lkciI6IjI0MDE6ZDAwMjo4ZTA1OmJkMDA6Oi82NCJ9.IDiC6SVFSyfkaprX-N7JD2-G0pF-ROVZKpUvFlxtFGk^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-US,en;q=0.7^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"origin: https://cloudorchestranova.com^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://cloudorchestranova.com/^" ^
+  -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"153^\^", ^\^"Not_A Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"153^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-gpc: 1^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/153.0.0.0 Safari/537.36^"

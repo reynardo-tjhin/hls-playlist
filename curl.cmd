@@ -1,16 +1,16 @@
-curl --url ^"https://moon.peakstorm.top/vd/alN4NTdsbVdjUUM5ZFRMYnR4S2tRUTpIcU1vaW1sUVJKZ2pqVkQ2OVp1SWVR/master.m3u8^" ^
-    -H ^"accept: */*^" ^
-    -H ^"accept-language: en-US,en;q=0.8^" ^
-    -H ^"cache-control: no-cache^" ^
-    -H ^"origin: https://www.vidy.st^" ^
-    -H ^"pragma: no-cache^" ^
-    -H ^"priority: u=1, i^" ^
-    -H ^"referer: https://www.vidy.st/^" ^
-    -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"153^\^", ^\^"Not_A Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"153^\^"^" ^
-    -H ^"sec-ch-ua-mobile: ?0^" ^
-    -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
-    -H ^"sec-fetch-dest: empty^" ^
-    -H ^"sec-fetch-mode: cors^" ^
-    -H ^"sec-fetch-site: cross-site^" ^
-    -H ^"sec-gpc: 1^" ^
-    -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/153.0.0.0 Safari/537.36^"
+curl --url ^"https://moon.peakstorm.top/vd/MDFobzNlX1lMVVJzeWlVR0NLekJFZzpTM2V3QzdJZnFQOGJhRm85NlFJZHpiM3YzNjZ5eW9Nd2Z4X2Z2bGdPd3lz/index-s1080p-v1-a1.m3u8^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-US,en;q=0.8^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"origin: https://www.vidy.st^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.vidy.st/^" ^
+  -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"153^\^", ^\^"Not_A Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"153^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-gpc: 1^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/153.0.0.0 Safari/537.36^"

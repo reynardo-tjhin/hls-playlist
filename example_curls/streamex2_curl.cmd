@@ -1,0 +1,16 @@
+curl --url ^"https://square-block-a52d.mirrowcelo002.workers.dev/video.m3u8?q=QzZ1aEJkUG9Ka0taVHlRS3FWbWc1Zzo4V0YxS1BtNGF0QVVjWl9NX1d2YzVlWEZZTzdJSzh5cVRBQlF5S2lIcUNuZTBmZXVoQjh5R0dlbjF6ZElvRUlpMmtQLUV1d3RLQXNpWERnX25OSTdSTzZxbWdKcWJjdjB5YlpKUVZiYThHQ1ROc1ZRUXNEYTZTbkxkZHJHX181ajNxXzJ6dVpZOWFCM195RU9BcDFhcTJXYjBsYXp4V0xsSzJXdnFZNElsS2dyU1Rib0tFUFNWdmxKU1ZaektTVmJlWVNYR2Fkd0hja3A4WGt6UE9TNXJucnE1ZW0xMHViUkhqb0NKRm9nOUZTYjJuUmhhTVJLclNPZDVzNjlacVRQYnlySDg1ZlVPMjljWUR5MW5obDY2c0UzV1l2V0JqQUdBZnZ1MVNfWndQYmNUQVhrQ3RCVl82UDBlYTBSWVRKenJRR0pGd1pqaWpTbTB3Z2ZJTmpxU0FQdEdCMkxGQmU2Q1VCcFJQM3hfOE9lZmI4VXhiNVBBR1lxS18wX3p2MGJHaWJDOHQ0ajU1WkZLY0E3TWFFSnQzZXVBOVFEWC1fN2diclhsVXdERkVfS0JiQ1FLaDhCUkxfSlJOVmhmUmRUR2YzU09YLU45RktOSEpvSzI5UjI4aXp5a3N1aXpGUnQ0aEZoeDgweDlRb2NXbTU3Mm8xT3d6QzNnWk5PaTBtTXdEdk55SDdpd3lfZS1DVzd1bk52YmdpNHVXRm9KUGtsSlp6emx3VHJmWUlpSXhoVU9OaktkOGxyak91VUx0VW51UEp0cGs4X0tyQkdSMWFtVFZkLW5SZ2ZZNTU0N3hUZmJNVS1JQllKOTQzM0NzX0xGbWFUWFBsbVFmRjV2STl0TVhaR3lwZW9NdHZ0cTZDSHVfalh1NjNBVVI5RDZuTXJRM1dXSlc2WkZoaW9wQXh0bmV0Y2tORDVneG93ZlloVmREWF92dHlZUXRQb29leDFuZDUtSWtmTllXd2tseGRla3lha1R3VDMzaFpwaUp2SnhqU0V3dVdsalhfT0sxM0Q1WFptRGZtVERpbHlZR1pmNzVhN0pmMU16c3ktS1AweFdoUkxNZzl5UEtxbVFDQlppT3B1ejRFNUgxbm82TzBYb190Y3pySml4dWxkTkRhbmNGUXY3RFdYbkxnelpUSnJsZ3lHdVFnc194MA^&type=hls^" ^
+  -H ^"accept: */*^" ^
+  -H ^"accept-language: en-US,en;q=0.8^" ^
+  -H ^"cache-control: no-cache^" ^
+  -H ^"origin: https://www.vidy.st^" ^
+  -H ^"pragma: no-cache^" ^
+  -H ^"priority: u=1, i^" ^
+  -H ^"referer: https://www.vidy.st/^" ^
+  -H ^"sec-ch-ua: ^\^"Brave^\^";v=^\^"153^\^", ^\^"Not_A Brand^\^";v=^\^"8^\^", ^\^"Chromium^\^";v=^\^"153^\^"^" ^
+  -H ^"sec-ch-ua-mobile: ?0^" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  -H ^"sec-fetch-dest: empty^" ^
+  -H ^"sec-fetch-mode: cors^" ^
+  -H ^"sec-fetch-site: cross-site^" ^
+  -H ^"sec-gpc: 1^" ^
+  -H ^"user-agent: Mozilla/5.0 ^(Windows NT 10.0; Win64; x64^) AppleWebKit/537.36 ^(KHTML, like Gecko^) Chrome/153.0.0.0 Safari/537.36^"

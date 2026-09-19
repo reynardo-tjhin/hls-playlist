@@ -219,3 +219,6 @@ __marimo__/
 
 # Temp folder
 .temp/
+
+# Videos
+*.mp4

@@ -222,3 +222,6 @@ __marimo__/
 
 # Videos
 *.mp4
+
+# Test script
+*test*.py

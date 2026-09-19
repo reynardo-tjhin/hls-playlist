@@ -1,0 +1,29 @@
+# this is a comment
+# this file lists all the possible names of the master playlist
+
+# most common / generic (first try)
+master.m3u8
+index.m3u8
+playlist.m3u8
+main.m3u8
+manifest.m3u8
+stream.m3u8
+hls.m3u8
+video.m3u8
+live.m3u8
+vod.m3u8
+all.m3u8
+default.m3u8
+variants.m3u8
+media.m3u8
+
+# compount / descriptive
+master_playlist.m3u8
+playlist_index.m3u8
+master_index.m3u8
+index_playlist.m3u8
+playlist_master.m3u8
+master_playlist_index.m3u8
+stream_index.m3u8
+hls_playlist.m3u8
+hls_master.m3u8

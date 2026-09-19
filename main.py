@@ -1,4 +1,3 @@
-import os
 import itertools
 import concurrent.futures
 
@@ -8,69 +7,48 @@ from hls_playlist import (
     scrape, scrape_segment_with_multiprocessing,
 )
 from pathlib import Path
+from tqdm import tqdm
 
+
+NUM_WORKERS=4
 
 # create a temporary directory to store all the segments
 TEMPDIR=Path(__file__).parent / ".temp"
 TEMPDIR.mkdir(exist_ok=True)
 
+# get the headers and the base url from hardcoded "curl.cmd" file
+CURL_CMD_FILE = Path(__file__).parent / "curl.cmd"
+text = CURL_CMD_FILE.read_text(encoding="utf-8")
+HEADERS, MASTER_BASE_URL = read_curl_command(text)
+
+# get all the possible master candidates
+MASTER_CANDIDATES_FILE=Path(__file__).parent / "master_candidates.txt"
+temp = MASTER_CANDIDATES_FILE.read_text(encoding="utf-8").splitlines()
+MASTER_CANDIDATE_NAMES = [line for line in temp if not line.startswith("#") and line != ""]
+
 
 def main():
-    # get the headers and the base url
-    curl_cmd_file = Path(__file__).parent / "curl.cmd"
-    text = curl_cmd_file.read_text(encoding="utf-8")
-    headers, base_url = read_curl_command(text)
-
-    # get the master playlist
-    possible_master_names = [
-        
-        # most common / generic (first try)
-        "master.m3u8",
-        "index.m3u8",
-        "playlist.m3u8",
-        "main.m3u8",
-        "manifest.m3u8",
-        "stream.m3u8",
-        "hls.m3u8",
-        "video.m3u8",
-        "live.m3u8",
-        "vod.m3u8",
-        "all.m3u8",
-        "default.m3u8",
-        "variants.m3u8",
-        "media.m3u8",
-        
-        # compount / descriptive
-        "master_playlist.m3u8",
-        "playlist_index.m3u8",
-        "master_index.m3u8",
-        "index_playlist.m3u8",
-        "playlist_master.m3u8",
-        "master_playlist_index.m3u8",
-        "stream_index.m3u8",
-        "hls_playlist.m3u8",
-        "hls_master.m3u8",
-    ]
+    # Step 1: get the master playlist
     resp = None
-    for possible_master_name in possible_master_names:
+    for possible_master_name in MASTER_CANDIDATE_NAMES:
         print(f"Retrying with '{possible_master_name}'")
-        url = base_url + "/" + possible_master_name
-        resp = scrape(url=url, headers=headers)
+        url = MASTER_BASE_URL + "/" + possible_master_name
+        resp = scrape(url=url, headers=HEADERS)
         if (resp != None):
             break
     
-    # if none found
+    # Step 1.1: could not find the master playlist -> reject any retries
     if (resp == None):
-        print(f"Could not find the master playlist")
+        print("ERROR: Could not find the master playlist")
         return
     
-    # parse the output and get the possible resolutions
+    # Step 2: parse the output and get the possible resolutions
     print("Found its master playlist")
     m3u8 = HLSMasterPlaylist(text=resp)
     for i, mv in enumerate(m3u8.media_variants):
         print(f"{i + 1}. Resolution Found: {mv.resolution}")
         
-    # getting the actual m3u8 based on the resolution
+    # Step 3: asks for user input: getting the actual m3u8 based on the resolution
     resolution_picked: int = 0
     try:
         resolution_picked = input(f"Which resolution would you like to download ({1} - {len(m3u8.media_variants)})? ")
@@ -80,9 +58,9 @@ def main():
         return
 
     # get the url based on the resolution picked
-    url = base_url + "/" + m3u8.media_variants[resolution_picked - 1].uri
+    url = MASTER_BASE_URL + "/" + m3u8.media_variants[resolution_picked - 1].uri
     print(f"URL:{url}")
-    resp = scrape(url=url, headers=headers)
+    resp = scrape(url=url, headers=HEADERS)
     
     # if none found
     if (resp == None):
@@ -92,30 +70,27 @@ def main():
     media_m3u8 = HLSMediaPlaylist(text=resp)
     
     # get the init
-    resp = scrape(url=media_m3u8.uri, headers=headers, decode=False)
+    resp = scrape(url=media_m3u8.uri, headers=HEADERS, decode=False)
     if (resp != None):
-        import re
-        from re import Pattern
-                
-        filename_re: Pattern = re.compile(r'https://.*/(.*.mp4).*')
-        filename: list[str] = filename_re.findall(media_m3u8.uri)
-        
-        print(filename)
-        if (len(filename) > 0):
-            file: Path = TEMPDIR / filename[0]
-            file.write_bytes(resp)
+        file: Path = TEMPDIR / media_m3u8.init_segment_filename
+        file.write_bytes(resp)
             
     # using multiprocessing
-    with concurrent.futures.ProcessPoolExecutor(max_workers=os.cpu_count()) as executor:
-        executor.map(
-            scrape_segment_with_multiprocessing, # the function
-            media_m3u8.segments, # the segments
-            itertools.repeat(headers), # constant 1: header
-            itertools.repeat(TEMPDIR), # constant 2: temp folder
-        )
+    with concurrent.futures.ProcessPoolExecutor(max_workers=NUM_WORKERS) as executor:
+        list(tqdm(
+            executor.map(
+                scrape_segment_with_multiprocessing, # the function
+                media_m3u8.segments, # the segments
+                itertools.repeat(HEADERS), # constant 1: header
+                itertools.repeat(TEMPDIR), # constant 2: temp folder
+            ),
+            total=media_m3u8.no_of_segments,
+            desc="Downloading segments",
+            unit="seg",
+        ))
     
     # combine the segments
-    combine_segments(temp_dir=TEMPDIR)   
+    combine_segments(temp_dir=TEMPDIR, expected_no_of_segments=media_m3u8.no_of_segments)
 
 
 if (__name__ == "__main__"):

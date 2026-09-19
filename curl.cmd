@@ -1,4 +1,4 @@
-curl --url ^"https://moon.peakstorm.top/vd/MDFobzNlX1lMVVJzeWlVR0NLekJFZzpTM2V3QzdJZnFQOGJhRm85NlFJZHpiM3YzNjZ5eW9Nd2Z4X2Z2bGdPd3lz/index-s1080p-v1-a1.m3u8^" ^
+curl --url ^"https://moon.peakstorm.top/vd/T3JCeFQzTXpLRjlFb3hlc0lza3h0UTotQ01LTmxqemFZMVhvZ0dZaFNhSk9KTEQ3TW9tYWhKbUpCTVRYMG5kVXZF/index-s1080p-v1-a1.m3u8^" ^
   -H ^"accept: */*^" ^
   -H ^"accept-language: en-US,en;q=0.8^" ^
   -H ^"cache-control: no-cache^" ^

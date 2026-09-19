@@ -1,9 +1,11 @@
 import time
+import random
 import urllib.request
 
 from pathlib import Path
 from hls_playlist.hls_media_playlist import HLSMediaSegment
 
+ERRORLOG=Path(__file__).parent.parent / "errors.log"
 
 def scrape_segment_with_multiprocessing(
     media_segment: HLSMediaSegment,
@@ -14,6 +16,7 @@ def scrape_segment_with_multiprocessing(
     if (resp != None):
         file = folderpath / media_segment.filename
         file.write_bytes(resp)
+    time.sleep(random.randint(a=1, b=3))
 
 
 def scrape(
@@ -33,7 +36,6 @@ def scrape(
     @param decode_encoding: the encoding used to decode the response
     """
     for attempt in range(retries):
-        
         try:
             req = urllib.request.Request(url=url, headers=headers)
             with urllib.request.urlopen(req, timeout=timeout) as response:
@@ -44,8 +46,9 @@ def scrape(
         
         except (urllib.request.HTTPError, TimeoutError) as e:
             if attempt == retries-1:
-                print(f"FAILED {url}: {e}")
+                # print(f"FAILED {url}: {e}")
+                ERRORLOG.write_text(f"FAILED {url}: {e}")
             else:
-                time.sleep(1.5 ** attempt)
+                time.sleep(3 ** attempt)
     
     return None

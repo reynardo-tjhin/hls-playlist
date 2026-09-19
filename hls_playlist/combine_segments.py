@@ -5,6 +5,11 @@ import subprocess
 from pathlib import Path
 
 
+class InvalidNumberOfSegments(Exception):
+    """raised when the expected number of segments is not reached"""
+    pass
+
+
 # sort the key by segment number
 def _seg_key(p: Path) -> int:
     """helper function to sort the file names by the numbers in the segment files"""
@@ -12,7 +17,11 @@ def _seg_key(p: Path) -> int:
     return int(m.group(1)) if m else -1 # init.mp4 -> -1, so first
 
 
-def combine_segments(temp_dir: Path, output_name: str = "combined.mp4") -> None:
+def combine_segments(
+    temp_dir: Path,
+    expected_no_of_segments: int,
+    output_name: str = "combined.mp4"
+) -> None:
     """
     `temp_dir` contains all the init*.mp4 and the *.m4s segments.
     `output_name` is the .mp4 video output after combining the init*.mp4 and the *.m4s segments and running the ffmpeg command.
@@ -23,9 +32,14 @@ def combine_segments(temp_dir: Path, output_name: str = "combined.mp4") -> None:
     Then runs the `ffmpeg` command.
     >> `ffmpeg -i output.mp4 -c copy combined.mp4`.
     """
-    # check if temp dir exists
+    # condition 1: check if temp dir exists
     if (not temp_dir.exists()):
         raise FileNotFoundError("'.temp' Folder does not exist")
+    
+    # condition 2: number of segments in the temp dir must be equal to the expected number of segments provided
+    no_of_segments: int = len(list(temp_dir.glob("seg-*.m4s")))
+    if (expected_no_of_segments != no_of_segments):
+        raise InvalidNumberOfSegments(f"Expected {expected_no_of_segments} but only found {no_of_segments}")
 
     # remove the existing 'temp_output.mp4'
     temp_output_path: Path = Path(__file__).parent.parent / "temp_output.mp4"
